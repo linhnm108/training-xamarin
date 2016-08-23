@@ -1,0 +1,4 @@
+mPassword.Droid.MainActivity, mPassword.Droid;md5623fe12446705a5539101ad562c09367.MainActivity
+mPassword.Droid.MainActivity, mPassword.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md5623fe12446705a5539101ad562c09367.MainActivity
+mPassword.Droid.MainActivity;md5623fe12446705a5539101ad562c09367.MainActivity
+mpassword.droid.MainActivity;md5623fe12446705a5539101ad562c09367.MainActivity
