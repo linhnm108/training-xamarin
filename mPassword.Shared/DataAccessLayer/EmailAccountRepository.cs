@@ -56,9 +56,9 @@ namespace mPassword
 			return emailAccountRepository.database.GetItems<EmailAccount>();
 		}
 		
-		public static int SaveEmailAccount (User user)
+		public static int SaveEmailAccount (EmailAccount emailAccount)
 		{
-			return emailAccountRepository.database.SaveItem(user);
+			return emailAccountRepository.database.SaveItem(emailAccount);
 		}
 
 		public static int DeleteEmailAccount(int id)
