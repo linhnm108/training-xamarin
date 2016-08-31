@@ -1,4 +1,4 @@
-﻿	using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using SQLite;
@@ -12,7 +12,11 @@ namespace mPassword
 		public SQLiteDatabase(string path) : base(path)
 		{
 			// create the tables
-			CreateTable<Task>();
+			CreateTable<User>();
+			CreateTable<BankAccount>();
+			CreateTable<EmailAccount>();
+			CreateTable<ComputerAccount>();
+			CreateTable<WebAccount>();
 		}
 
 		public IEnumerable<T> GetItems<T>() where T : IModel, new()

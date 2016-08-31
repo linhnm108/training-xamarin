@@ -4,6 +4,10 @@ namespace mPassword.Shared
 {
 	public static class UserManager
 	{
+		static UserManager()
+		{
+		}
+		
 		public static User GetUser(int id)
 		{
 			return UserRepository.GetUser(id);
@@ -22,6 +26,11 @@ namespace mPassword.Shared
 		public static int DeleteTask(int id)
 		{
 			return UserRepository.DeleteUser(id);
+		}
+
+		public static User GetUserByName(string username)
+		{
+			return UserRepository.GetUserByName(username);
 		}
 	}
 }

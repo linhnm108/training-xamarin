@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace mPassword
 {
 	public class UserRepository
 	{
+		static readonly object locker = new object();
+
 		readonly SQLiteDatabase database;
 
 		protected static string dbLocation;
@@ -17,7 +20,7 @@ namespace mPassword
 			userRepository = new UserRepository();
 		}
 
-		public UserRepository()
+		protected UserRepository()
 		{
 			// set the db location
 			dbLocation = DatabaseFilePath;
@@ -64,6 +67,14 @@ namespace mPassword
 		public static int DeleteUser(int id)
 		{
 			return userRepository.database.DeleteItem<User>(id);
+		}
+
+		public static User GetUserByName(string userName)
+		{
+			lock (locker)
+			{
+				return userRepository.database.Table<User>().FirstOrDefault(x => x.UserName == userName);
+			}
 		}
 	}
 }

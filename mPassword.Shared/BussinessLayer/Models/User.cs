@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using SQLite;
-using SQLiteNetExtensions.Attributes;
+﻿using SQLite;
 
 namespace mPassword
 {
@@ -14,17 +12,5 @@ namespace mPassword
 
 		[NotNull]
 		public string Password { get; set; }
-
-		[OneToMany("UserID")]
-		public List<BankAccount> BankAccounts { get; set; }
-
-		[OneToMany("UserID")]
-		public List<ComputerAccount> ComputerAccounts { get; set; }
-
-		[OneToMany("UserID")]
-		public List<EmailAccount> EmailAccounts { get; set; }
-
-		[OneToMany("UserID")]
-		public List<WebAccount> WebAccounts { get; set; }
 	}
 }
