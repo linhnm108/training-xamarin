@@ -1,4 +1,3 @@
-using Foundation;
 using System;
 using UIKit;
 using mPassword.Shared;
@@ -31,6 +30,14 @@ namespace mPassword.iOS
 			{
 				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_PASSWORD_REQUIRED);
 			}
+			else if (ValicationUtil.IsOverMaxLength(userName, 12))
+			{
+				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_USERNAME_OVER_MAX_LENGTH);
+			}
+			else if (!ValicationUtil.IsValidPassword(password))
+			{
+				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_PASSWORD_INVALID);
+			}
 			else if (password != confirmPassword)
 			{
 				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_PASSWORD_NOT_MATCH);
@@ -39,7 +46,7 @@ namespace mPassword.iOS
 			{
 				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_USER_EXISTED);
 			}
-			else 
+			else
 			{
 				// Save user info to database
 				var user = new User();
