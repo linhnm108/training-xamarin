@@ -23,5 +23,10 @@ namespace mPassword.Shared
 		{
 			return WebAccountRepository.DeleteWebAccount(id);
 		}
+
+		public static IList<WebAccount> GetWebAccountsByUserId(int userId)
+		{
+			return new List<WebAccount>(WebAccountRepository.GetWebAccountsByUserId(userId));
+		}
 	}
 }

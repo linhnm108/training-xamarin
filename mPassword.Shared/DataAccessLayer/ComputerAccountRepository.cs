@@ -6,6 +6,8 @@ namespace mPassword
 {
 	public class ComputerAccountRepository
 	{
+		static readonly object locker = new object();
+
 		readonly SQLiteDatabase database;
 
 		protected static string dbLocation;
@@ -43,6 +45,14 @@ namespace mPassword
 				var path = Path.Combine (libraryPath, sqliteFilename);
 
 				return path;	
+			}
+		}
+
+		public static IEnumerable<ComputerAccount> GetComputerAccountsByUserId(int userId)
+		{
+			lock (locker)
+			{
+				return computerAccountRepository.database.Table<ComputerAccount>().Where(x => x.UserID == userId);
 			}
 		}
 

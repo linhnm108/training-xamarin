@@ -291,7 +291,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="904" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129" y="2228"/>
+            <point key="canvasLocation" x="1666" y="2014"/>
         </scene>
         <scene sceneID="916">
             <objects>
@@ -318,7 +318,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue id="1789" destination="1613" kind="show" identifier="showDetail"/>
+                                    <segue id="2368" destination="1613" kind="show" identifier="showDetail"/>
                                 </connections>
                                 <accessibility key="accessibilityConfiguration" identifier="showDetail"/>
                             </tableViewCell>
@@ -343,25 +343,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="974" rowHeight="44" style="IBUITableViewCellStyleValue1" textLabel="1593" detailTextLabel="1594">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="974" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="2124" detailTextLabel="1594" accessoryType="disclosureIndicator">
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="974" id="975">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="562" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1593">
-                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2124">
+                                            <rect key="frame" x="20" y="0.0" width="542" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1594">
-                                            <rect key="frame" x="536" y="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -388,25 +381,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1029" rowHeight="44" style="IBUITableViewCellStyleValue1" textLabel="1595" detailTextLabel="1596">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1029" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="2123" detailTextLabel="1596" accessoryType="disclosureIndicator">
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1029" id="1030">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="562" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1595">
-                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2123">
+                                            <rect key="frame" x="20" y="0.0" width="542" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1596">
-                                            <rect key="frame" x="536" y="12" width="44" height="20.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -449,6 +435,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue id="2785" destination="2505" kind="show" identifier="showDetail"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -461,7 +450,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1040" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="376"/>
+            <point key="canvasLocation" x="610" y="342"/>
         </scene>
         <scene sceneID="1209">
             <objects>
@@ -642,7 +631,75 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1615" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1577" y="-376"/>
+            <point key="canvasLocation" x="1366" y="-380"/>
+        </scene>
+        <scene sceneID="2504">
+            <objects>
+                <viewController id="2505" sceneMemberID="viewController" customClass="ComputerAccDetailsViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2502"/>
+                        <viewControllerLayoutGuide type="bottom" id="2503"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2506">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2583" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Account name" misplaced="YES">
+                                <rect key="frame" x="20" y="40" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2618" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Username" misplaced="YES">
+                                <rect key="frame" x="20" y="90" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2622" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Password" misplaced="YES">
+                                <rect key="frame" x="20" y="140" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2626" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Password expired duration" misplaced="YES">
+                                <rect key="frame" x="20" y="190" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2627" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Updated date (MM/dd/yyyy)" misplaced="YES">
+                                <rect key="frame" x="20" y="240" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint id="2599" firstItem="2583" firstAttribute="leading" secondItem="2506" secondAttribute="leading" constant="20"/>
+                            <constraint id="2615" firstItem="2506" firstAttribute="trailing" secondItem="2583" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2617" firstItem="2583" firstAttribute="top" secondItem="2502" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2619" firstItem="2618" firstAttribute="top" secondItem="2583" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2620" firstItem="2618" firstAttribute="leading" secondItem="2506" secondAttribute="leading" constant="20"/>
+                            <constraint id="2621" firstItem="2506" firstAttribute="trailing" secondItem="2618" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2623" firstItem="2622" firstAttribute="top" secondItem="2618" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2624" firstItem="2622" firstAttribute="leading" secondItem="2506" secondAttribute="leading" constant="20"/>
+                            <constraint id="2625" firstItem="2506" firstAttribute="trailing" secondItem="2622" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2628" firstItem="2626" firstAttribute="top" secondItem="2622" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2630" firstItem="2626" firstAttribute="leading" secondItem="2506" secondAttribute="leading" constant="20"/>
+                            <constraint id="2631" firstItem="2506" firstAttribute="trailing" secondItem="2626" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2632" firstItem="2627" firstAttribute="top" secondItem="2626" secondAttribute="bottom" constant="18"/>
+                            <constraint id="2633" firstItem="2627" firstAttribute="leading" secondItem="2506" secondAttribute="leading" constant="20"/>
+                            <constraint id="2634" firstItem="2506" firstAttribute="trailing" secondItem="2627" secondAttribute="trailing" constant="20"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="accountName" destination="2583" id="name-outlet-2583"/>
+                        <outlet property="userName" destination="2618" id="name-outlet-2618"/>
+                        <outlet property="password" destination="2622" id="name-outlet-2622"/>
+                        <outlet property="passwordExpiredDuration" destination="2626" id="name-outlet-2626"/>
+                        <outlet property="updatedDate" destination="2627" id="name-outlet-2627"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2507" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2053" y="-378"/>
         </scene>
     </scenes>
     <resources>

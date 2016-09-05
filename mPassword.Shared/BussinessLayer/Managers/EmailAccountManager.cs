@@ -23,5 +23,10 @@ namespace mPassword.Shared
 		{
 			return EmailAccountRepository.DeleteEmailAccount(id);
 		}
+
+		public static IList<EmailAccount> GetEmailAccountsByUserId(int userId)
+		{
+			return new List<EmailAccount>(EmailAccountRepository.GetEmailAccountsByUserId(userId));
+		}
 	}
 }

@@ -23,5 +23,10 @@ namespace mPassword.Shared
 		{
 			return ComputerAccountRepository.DeleteComputerAccount(id);
 		}
+
+		public static IList<ComputerAccount> GetComputerAccountsByUserId(int userId)
+		{
+			return new List<ComputerAccount>(ComputerAccountRepository.GetComputerAccountsByUserId(userId));
+		}
 	}
 }

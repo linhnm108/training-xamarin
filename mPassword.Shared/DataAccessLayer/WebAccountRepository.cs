@@ -6,6 +6,8 @@ namespace mPassword
 {
 	public class WebAccountRepository
 	{
+		static readonly object locker = new object();
+
 		readonly SQLiteDatabase database;
 
 		protected static string dbLocation;
@@ -64,6 +66,14 @@ namespace mPassword
 		public static int DeleteWebAccount(int id)
 		{
 			return webAccountRepository.database.DeleteItem<WebAccount>(id);
+		}
+
+		public static IEnumerable<WebAccount> GetWebAccountsByUserId(int userId)
+		{
+			lock (locker)
+			{
+				return webAccountRepository.database.Table<WebAccount>().Where(x => x.UserID == userId);
+			}
 		}
 	}
 }

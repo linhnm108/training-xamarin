@@ -6,6 +6,8 @@ namespace mPassword
 {
 	public class EmailAccountRepository
 	{
+		static readonly object locker = new object();
+
 		readonly SQLiteDatabase database;
 
 		protected static string dbLocation;
@@ -64,6 +66,14 @@ namespace mPassword
 		public static int DeleteEmailAccount(int id)
 		{
 			return emailAccountRepository.database.DeleteItem<EmailAccount>(id);
+		}
+
+		public static IEnumerable<EmailAccount> GetEmailAccountsByUserId(int userId)
+		{
+			lock (locker)
+			{
+				return emailAccountRepository.database.Table<EmailAccount>().Where(x => x.UserID == userId);
+			}
 		}
 	}
 }
