@@ -337,13 +337,13 @@
         </scene>
         <scene sceneID="969">
             <objects>
-                <tableViewController id="970" sceneMemberID="viewController">
+                <tableViewController id="970" sceneMemberID="viewController" customClass="EmailAccTableViewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="971">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="974" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="2124" detailTextLabel="1594" accessoryType="disclosureIndicator">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="974" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="2124" detailTextLabel="1594" accessoryType="disclosureIndicator" reuseIdentifier="EmailAccCell">
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="974" id="975">
@@ -359,6 +359,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue id="2868" destination="2804" kind="show" identifier="showDetail"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -375,13 +378,13 @@
         </scene>
         <scene sceneID="1024">
             <objects>
-                <tableViewController id="1025" sceneMemberID="viewController">
+                <tableViewController id="1025" sceneMemberID="viewController" customClass="WebAccTableViewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1026">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1029" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="2123" detailTextLabel="1596" accessoryType="disclosureIndicator">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1029" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="2123" detailTextLabel="1596" accessoryType="disclosureIndicator" reuseIdentifier="WebAccCell">
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1029" id="1030">
@@ -397,6 +400,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue id="2951" destination="2873" kind="show" identifier="showDetail"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -700,6 +706,124 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2507" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2053" y="-378"/>
+        </scene>
+        <scene sceneID="2803">
+            <objects>
+                <viewController id="2804" sceneMemberID="viewController" customClass="EmailAccDetailsViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2801"/>
+                        <viewControllerLayoutGuide type="bottom" id="2802"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2805">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2808" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Account name" misplaced="YES">
+                                <rect key="frame" x="20" y="40" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2814" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Username" misplaced="YES">
+                                <rect key="frame" x="20" y="90" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2815" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Password" misplaced="YES">
+                                <rect key="frame" x="20" y="140" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint id="2809" firstItem="2808" firstAttribute="leading" secondItem="2805" secondAttribute="leading" constant="20"/>
+                            <constraint id="2810" firstItem="2805" firstAttribute="trailing" secondItem="2808" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2813" firstItem="2808" firstAttribute="top" secondItem="2801" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2816" firstItem="2814" firstAttribute="top" secondItem="2808" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2817" firstItem="2814" firstAttribute="leading" secondItem="2805" secondAttribute="leading" constant="20"/>
+                            <constraint id="2818" firstItem="2805" firstAttribute="trailing" secondItem="2814" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2819" firstItem="2815" firstAttribute="top" secondItem="2814" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2820" firstItem="2815" firstAttribute="leading" secondItem="2805" secondAttribute="leading" constant="20"/>
+                            <constraint id="2821" firstItem="2805" firstAttribute="trailing" secondItem="2815" secondAttribute="trailing" constant="20"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="accountName" destination="2808" id="name-outlet-2808"/>
+                        <outlet property="userName" destination="2814" id="name-outlet-2814"/>
+                        <outlet property="password" destination="2815" id="name-outlet-2815"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2806" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2719" y="-378"/>
+        </scene>
+        <scene sceneID="2872">
+            <objects>
+                <viewController id="2873" sceneMemberID="viewController" customClass="WebAccDetailsViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2870"/>
+                        <viewControllerLayoutGuide type="bottom" id="2871"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2874">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2877" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Account name" misplaced="YES">
+                                <rect key="frame" x="20" y="40" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2878" translatesAutoresizingMaskIntoConstraints="NO" placeholder="URL" misplaced="YES">
+                                <rect key="frame" x="20" y="90" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2879" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Username" misplaced="YES">
+                                <rect key="frame" x="20" y="140" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2880" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Password" misplaced="YES">
+                                <rect key="frame" x="20" y="190" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="2881" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Note" misplaced="YES">
+                                <rect key="frame" x="20" y="240" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint id="2882" firstItem="2877" firstAttribute="leading" secondItem="2874" secondAttribute="leading" constant="20"/>
+                            <constraint id="2883" firstItem="2874" firstAttribute="trailing" secondItem="2877" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2884" firstItem="2877" firstAttribute="top" secondItem="2870" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2885" firstItem="2878" firstAttribute="top" secondItem="2877" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2886" firstItem="2878" firstAttribute="leading" secondItem="2874" secondAttribute="leading" constant="20"/>
+                            <constraint id="2887" firstItem="2874" firstAttribute="trailing" secondItem="2878" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2888" firstItem="2879" firstAttribute="top" secondItem="2878" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2889" firstItem="2879" firstAttribute="leading" secondItem="2874" secondAttribute="leading" constant="20"/>
+                            <constraint id="2890" firstItem="2874" firstAttribute="trailing" secondItem="2879" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2891" firstItem="2880" firstAttribute="top" secondItem="2879" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2892" firstItem="2880" firstAttribute="leading" secondItem="2874" secondAttribute="leading" constant="20"/>
+                            <constraint id="2893" firstItem="2874" firstAttribute="trailing" secondItem="2880" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2894" firstItem="2881" firstAttribute="top" secondItem="2880" secondAttribute="bottom" constant="20"/>
+                            <constraint id="2895" firstItem="2881" firstAttribute="leading" secondItem="2874" secondAttribute="leading" constant="20"/>
+                            <constraint id="2896" firstItem="2874" firstAttribute="trailing" secondItem="2881" secondAttribute="trailing" constant="20"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="accountName" destination="2877" id="name-outlet-2877"/>
+                        <outlet property="url" destination="2878" id="name-outlet-2878"/>
+                        <outlet property="userName" destination="2879" id="name-outlet-2879"/>
+                        <outlet property="password" destination="2880" id="name-outlet-2880"/>
+                        <outlet property="note" destination="2881" id="name-outlet-2881"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2875" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3406" y="-374"/>
         </scene>
     </scenes>
     <resources>
