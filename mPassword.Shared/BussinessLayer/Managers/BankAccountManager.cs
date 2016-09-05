@@ -14,6 +14,11 @@ namespace mPassword.Shared
 			return new List<BankAccount>(BankAccountRepository.GetBankAccounts());
 		}
 
+		public static IList<BankAccount> GetBankAccountsByUserId(int userId)
+		{
+			return new List<BankAccount>(BankAccountRepository.GetBankAccountsByUserId(userId));
+		}
+
 		public static int SaveBankAccount(BankAccount bankAccount)
 		{
 			return BankAccountRepository.SaveBankAccount(bankAccount);

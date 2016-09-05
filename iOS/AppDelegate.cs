@@ -11,7 +11,13 @@ namespace mPassword.iOS
 	{
 		// class-level declarations
 
-		private bool isAuthenticated = false;
+		bool isAuthenticated = false;
+
+		public User LoginUser
+		{
+			set;
+			get;
+		}
 
 		public override UIWindow Window
 		{
@@ -57,8 +63,8 @@ namespace mPassword.iOS
 			if (isAuthenticated)
 			{
 				//We are already authenticated, so go to the main table view controller;
-				var mainMenuTableViewController = GetViewController(MainStoryboard, "MainMenuTableView");
-				SetRootViewController(mainMenuTableViewController, false);
+				var mainTabBarViewController = GetViewController(MainStoryboard, "MainTabBarViewController");
+				SetRootViewController(mainTabBarViewController, false);
 			}
 			else
 			{
@@ -74,7 +80,7 @@ namespace mPassword.iOS
 		void LoginViewController_OnLoginSuccess(object sender, EventArgs e)
 		{
 			//We have successfully Logged In
-			var tabBarController = GetViewController(MainStoryboard, "MainMenuTableView");
+			var tabBarController = GetViewController(MainStoryboard, "MainTabBarViewController");
 			SetRootViewController(tabBarController, true);
 		}
 

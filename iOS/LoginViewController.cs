@@ -52,6 +52,10 @@ namespace mPassword.iOS
 
 			if (compare.Equals(user.Password, SecurityUtil.HashSHA256(password)))
 			{
+				//Create an instance of our AppDelegate
+				var appDelegate = UIApplication.SharedApplication.Delegate as AppDelegate;
+				appDelegate.LoginUser = user;
+
 				return true;
 			}
 

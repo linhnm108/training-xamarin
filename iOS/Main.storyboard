@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="648">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="898">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -273,44 +273,91 @@
             </objects>
             <point key="canvasLocation" x="606" y="-385"/>
         </scene>
-        <scene sceneID="647">
+        <scene sceneID="897">
             <objects>
-                <navigationController definesPresentationContext="YES" id="648" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="651">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
-                    </navigationBar>
+                <tabBarController definesPresentationContext="YES" id="898" sceneMemberID="viewController" customClass="MainTabBarViewController" storyboardIdentifier="MainTabBarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="903">
+                        <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
                     <connections>
-                        <segue id="803" destination="660" kind="relationship" relationship="rootViewController"/>
+                        <segue id="1295" destination="1210" kind="relationship" relationship="viewControllers"/>
+                        <segue id="1377" destination="1224" kind="relationship" relationship="viewControllers"/>
+                        <segue id="1417" destination="1238" kind="relationship" relationship="viewControllers"/>
+                        <segue id="1461" destination="1252" kind="relationship" relationship="viewControllers"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="652" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="904" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-142" y="369"/>
+            <point key="canvasLocation" x="1129" y="2228"/>
         </scene>
-        <scene sceneID="659">
+        <scene sceneID="916">
             <objects>
-                <tableViewController id="660" sceneMemberID="viewController" customClass="MainMenuTableView" storyboardIdentifier="MainMenuTableView" useStoryboardIdentifierAsRestorationIdentifier="YES">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="661">
+                <tableViewController id="917" sceneMemberID="viewController" customClass="BankAccTableViewController" storyboardIdentifier="BankAccTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="918">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="664" rowHeight="44" style="IBUITableViewCellStyleValue1" textLabel="885" detailTextLabel="886" reuseIdentifier="CategoryCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="921" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="2066" detailTextLabel="1807" reuseIdentifier="BankAccCell" accessoryType="disclosureIndicator">
                                 <rect key="frame" x="0.0" y="22" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="664" id="665">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="921" id="922">
+                                    <rect key="frame" x="0.0" y="0.0" width="562" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2066">
+                                            <rect key="frame" x="20" y="0.0" width="542" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue id="1789" destination="1613" kind="show" identifier="showDetail"/>
+                                </connections>
+                                <accessibility key="accessibilityConfiguration" identifier="showDetail"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="917" id="919"/>
+                            <outlet property="delegate" destination="917" id="920"/>
+                        </connections>
+                    </tableView>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem title="Bank Account" id="1336" key="navigationItem"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="923" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-206" y="342"/>
+        </scene>
+        <scene sceneID="969">
+            <objects>
+                <tableViewController id="970" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="971">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="974" rowHeight="44" style="IBUITableViewCellStyleValue1" textLabel="1593" detailTextLabel="1594">
+                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="974" id="975">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="885">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1593">
                                             <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="886">
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1594">
                                             <rect key="frame" x="536" y="12" width="44" height="20.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -322,20 +369,289 @@
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="660" id="662"/>
-                            <outlet property="delegate" destination="660" id="663"/>
+                            <outlet property="dataSource" destination="970" id="972"/>
+                            <outlet property="delegate" destination="970" id="973"/>
                         </connections>
                     </tableView>
-                    <navigationItem title="My Password" id="802" key="navigationItem"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem id="1584" key="navigationItem" title="Email Account"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="666" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="976" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="557" y="363"/>
+            <point key="canvasLocation" x="2514" y="362"/>
+        </scene>
+        <scene sceneID="1024">
+            <objects>
+                <tableViewController id="1025" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1026">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1029" rowHeight="44" style="IBUITableViewCellStyleValue1" textLabel="1595" detailTextLabel="1596">
+                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1029" id="1030">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1595">
+                                            <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="1596">
+                                            <rect key="frame" x="536" y="12" width="44" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1025" id="1027"/>
+                            <outlet property="delegate" destination="1025" id="1028"/>
+                        </connections>
+                    </tableView>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem title="Web Account" id="1536" key="navigationItem"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1031" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1580" y="376"/>
+        </scene>
+        <scene sceneID="1033">
+            <objects>
+                <tableViewController id="1034" sceneMemberID="viewController" customClass="ComputerAccTableViewController" storyboardIdentifier="ComputerAccTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1035">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="1038" rowHeight="44" style="IBUITableViewCellStyleDefault" textLabel="2073" detailTextLabel="1592" accessoryType="disclosureIndicator" reuseIdentifier="ComputerAccCell">
+                                <rect key="frame" x="0.0" y="22" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1038" id="1039">
+                                    <rect key="frame" x="0.0" y="0.0" width="562" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2073">
+                                            <rect key="frame" x="20" y="0.0" width="542" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="1034" id="1036"/>
+                            <outlet property="delegate" destination="1034" id="1037"/>
+                        </connections>
+                    </tableView>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem title="Computer Account" id="1500" key="navigationItem"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1040" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599" y="376"/>
+        </scene>
+        <scene sceneID="1209">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="1210" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1213">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="1337" destination="917" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                    <tabBarItem key="tabBarItem" id="1294" title="Bank" image="Bank"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1214" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-362" y="1172"/>
+        </scene>
+        <scene sceneID="1223">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="1224" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1227">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="1501" destination="1034" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                    <tabBarItem key="tabBarItem" id="1376" title="Computer" image="Computer"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1228" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="594" y="1182"/>
+        </scene>
+        <scene sceneID="1237">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="1238" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1241">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="1537" destination="1025" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                    <tabBarItem key="tabBarItem" id="1416" title="Web" image="Web"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1242" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1565" y="1208"/>
+        </scene>
+        <scene sceneID="1251">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="1252" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1255">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                        <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                    </navigationBar>
+                    <connections>
+                        <segue id="1585" destination="970" kind="relationship" relationship="rootViewController"/>
+                    </connections>
+                    <tabBarItem key="tabBarItem" title="Email" id="1460" image="Email"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1256" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2518" y="1222"/>
+        </scene>
+        <scene sceneID="1612">
+            <objects>
+                <viewController id="1613" sceneMemberID="viewController" customClass="BankAccDetailsViewController" storyboardIdentifier="BankAccDetailsViewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1610"/>
+                        <viewControllerLayoutGuide type="bottom" id="1611"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1614">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1822" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Account name" misplaced="YES">
+                                <rect key="frame" x="20" y="40" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1857" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Account number" misplaced="YES">
+                                <rect key="frame" x="20" y="90" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1893" translatesAutoresizingMaskIntoConstraints="NO" placeholder="ATM password" misplaced="YES">
+                                <rect key="frame" x="20" y="140" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1911" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Internet banking user" misplaced="YES">
+                                <rect key="frame" x="20" y="190" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1915" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Internet banking password" misplaced="YES">
+                                <rect key="frame" x="20" y="240" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1919" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Security question" misplaced="YES">
+                                <rect key="frame" x="20" y="290" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1923" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Security answer" misplaced="YES">
+                                <rect key="frame" x="20" y="340" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1961" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Note" misplaced="YES">
+                                <rect key="frame" x="20" y="390" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1963" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Password expired duration" misplaced="YES">
+                                <rect key="frame" x="20" y="440" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="1973" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Updated date (MM/dd/yyyy)" misplaced="YES">
+                                <rect key="frame" x="20" y="490" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint id="1839" firstItem="1614" firstAttribute="trailing" secondItem="1822" secondAttribute="trailing" constant="20"/>
+                            <constraint id="1856" firstItem="1822" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1874" firstItem="1857" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1875" firstItem="1614" firstAttribute="trailing" secondItem="1857" secondAttribute="trailing" constant="20"/>
+                            <constraint id="1890" firstItem="1822" firstAttribute="top" secondItem="1610" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1892" firstItem="1857" firstAttribute="top" secondItem="1822" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1894" firstItem="1893" firstAttribute="top" secondItem="1857" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1909" firstItem="1893" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1910" firstItem="1614" firstAttribute="trailing" secondItem="1893" secondAttribute="trailing" constant="20"/>
+                            <constraint id="1912" firstItem="1911" firstAttribute="top" secondItem="1893" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1913" firstItem="1911" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1914" firstItem="1614" firstAttribute="trailing" secondItem="1911" secondAttribute="trailing" constant="20"/>
+                            <constraint id="1916" firstItem="1915" firstAttribute="top" secondItem="1911" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1917" firstItem="1915" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1918" firstItem="1614" firstAttribute="trailing" secondItem="1915" secondAttribute="trailing" constant="20"/>
+                            <constraint id="1920" firstItem="1919" firstAttribute="top" secondItem="1915" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1921" firstItem="1919" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1922" firstItem="1614" firstAttribute="trailing" secondItem="1919" secondAttribute="trailing" constant="20"/>
+                            <constraint id="1924" firstItem="1923" firstAttribute="top" secondItem="1919" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1925" firstItem="1923" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1926" firstItem="1614" firstAttribute="trailing" secondItem="1923" secondAttribute="trailing" constant="20"/>
+                            <constraint id="1962" firstItem="1961" firstAttribute="top" secondItem="1923" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1964" firstItem="1961" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1965" firstItem="1614" firstAttribute="trailing" secondItem="1961" secondAttribute="trailing" constant="20"/>
+                            <constraint id="1967" firstItem="1963" firstAttribute="top" secondItem="1961" secondAttribute="bottom" constant="20"/>
+                            <constraint id="1969" firstItem="1963" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1970" firstItem="1614" firstAttribute="trailing" secondItem="1963" secondAttribute="trailing" constant="20"/>
+                            <constraint id="1978" firstItem="1973" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="1979" firstItem="1614" firstAttribute="trailing" secondItem="1973" secondAttribute="trailing" constant="20"/>
+                            <constraint id="2035" firstItem="1973" firstAttribute="top" secondItem="1963" secondAttribute="bottom" constant="20"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="accountName" destination="1822" id="name-outlet-1822"/>
+                        <outlet property="accountNumber" destination="1857" id="name-outlet-1857"/>
+                        <outlet property="atmPassword" destination="1893" id="name-outlet-1893"/>
+                        <outlet property="iBankUser" destination="1911" id="name-outlet-1911"/>
+                        <outlet property="iBankPassword" destination="1915" id="name-outlet-1915"/>
+                        <outlet property="securityQuestion" destination="1919" id="name-outlet-1919"/>
+                        <outlet property="securityAnswer" destination="1923" id="name-outlet-1923"/>
+                        <outlet property="note" destination="1961" id="name-outlet-1961"/>
+                        <outlet property="passwordExpiredDuration" destination="1963" id="name-outlet-1963"/>
+                        <outlet property="updatedDate" destination="1973" id="name-outlet-1973"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1615" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1577" y="-376"/>
         </scene>
     </scenes>
     <resources>
         <image name="user" width="126" height="126"/>
         <image name="bar" width="300" height="20"/>
         <image name="close" width="64" height="64"/>
+        <image name="Bank" width="25" height="25"/>
+        <image name="Computer" width="25" height="25"/>
+        <image name="Email" width="25" height="25"/>
+        <image name="Web" width="25" height="25"/>
     </resources>
 </document>

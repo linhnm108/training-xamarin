@@ -11,8 +11,8 @@ using UIKit;
 
 namespace mPassword.iOS
 {
-    [Register ("MainMenuTableView")]
-    partial class MainMenuTableView
+    [Register ("BankAccTableViewController")]
+    partial class BankAccTableViewController
     {
         void ReleaseDesignerOutlets ()
         {

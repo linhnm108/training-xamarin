@@ -6,6 +6,8 @@ namespace mPassword
 {
 	public class BankAccountRepository
 	{
+		static readonly object locker = new object();
+
 		readonly SQLiteDatabase database;
 
 		protected static string dbLocation;
@@ -54,6 +56,14 @@ namespace mPassword
 		public static IEnumerable<BankAccount> GetBankAccounts ()
 		{
 			return bankAccountRepository.database.GetItems<BankAccount>();
+		}
+
+		public static IEnumerable<BankAccount> GetBankAccountsByUserId(int userId)
+		{
+			lock (locker)
+			{
+				return bankAccountRepository.database.Table<BankAccount>().Where(x => x.UserID == userId);
+			}
 		}
 		
 		public static int SaveBankAccount (BankAccount bankAccount)

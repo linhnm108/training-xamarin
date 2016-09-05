@@ -24,15 +24,15 @@ namespace mPassword.iOS
 
 			if (string.IsNullOrEmpty(userName))
 			{
-				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_USERNAME_REQUIRED);
+				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_REQUIRED.Replace("{field_name}", "Username"));
 			}
 			else if (string.IsNullOrEmpty(password))
 			{
-				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_PASSWORD_REQUIRED);
+				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_REQUIRED.Replace("{field_name}", "Password"));
 			}
 			else if (ValicationUtil.IsOverMaxLength(userName, 12))
 			{
-				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_USERNAME_OVER_MAX_LENGTH);
+				ShowAlertMessage(Constants.ERROR_SIGNUP, Constants.ERROR_OVER_MAX_LENGTH.Replace("{field_name}", "Username").Replace("{max_length}","12"));
 			}
 			else if (!ValicationUtil.IsValidPassword(password))
 			{
@@ -61,10 +61,11 @@ namespace mPassword.iOS
 				var mainStoryboard = appDelegate.MainStoryboard;
 
 				//Get an instance of our MainTabBarViewController
-				var mainMenuViewController = appDelegate.GetViewController(mainStoryboard, "MainMenuTableView");
+				var mainTabBarViewController = appDelegate.GetViewController(mainStoryboard, "MainTabBarViewController");
 
-				//Set the MainMenuTableViewController as our RootViewController
-				appDelegate.SetRootViewController(mainMenuViewController, true);
+				//Set the MainTabBarController as our RootViewController
+				appDelegate.SetRootViewController(mainTabBarViewController, true);
+				appDelegate.LoginUser = UserManager.GetUserByName(userName);
 			}
 		}
 
