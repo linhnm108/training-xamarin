@@ -61,10 +61,13 @@ namespace mPassword.iOS
 				var mainStoryboard = appDelegate.MainStoryboard;
 
 				//Get an instance of our MainTabBarViewController
-				var mainTabBarViewController = appDelegate.GetViewController(mainStoryboard, "MainTabBarViewController");
+				//var mainTabBarViewController = appDelegate.GetViewController(mainStoryboard, "MainTabBarViewController");
+
+				//Get an instance of our MainScreenr
+				var mainScreenViewController = appDelegate.GetViewController(mainStoryboard, "MainScreenViewController");
 
 				//Set the MainTabBarController as our RootViewController
-				appDelegate.SetRootViewController(mainTabBarViewController, true);
+				appDelegate.SetRootViewController(mainScreenViewController, true);
 				appDelegate.LoginUser = UserManager.GetUserByName(userName);
 			}
 		}

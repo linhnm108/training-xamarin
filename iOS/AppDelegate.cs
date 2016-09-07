@@ -11,7 +11,7 @@ namespace mPassword.iOS
 	{
 		// class-level declarations
 
-		bool isAuthenticated = false;
+		bool isAuthenticated;
 
 		public User LoginUser
 		{
@@ -63,8 +63,9 @@ namespace mPassword.iOS
 			if (isAuthenticated)
 			{
 				//We are already authenticated, so go to the main table view controller;
-				var mainTabBarViewController = GetViewController(MainStoryboard, "MainTabBarViewController");
-				SetRootViewController(mainTabBarViewController, false);
+				//var mainTabBarViewController = GetViewController(MainStoryboard, "MainTabBarViewController");
+				var mainScreenViewController = GetViewController(MainStoryboard, "MainScreenViewController");
+				SetRootViewController(mainScreenViewController, false);
 			}
 			else
 			{
@@ -80,8 +81,9 @@ namespace mPassword.iOS
 		void LoginViewController_OnLoginSuccess(object sender, EventArgs e)
 		{
 			//We have successfully Logged In
-			var tabBarController = GetViewController(MainStoryboard, "MainTabBarViewController");
-			SetRootViewController(tabBarController, true);
+			isAuthenticated = true;
+			var mainScreenViewController = GetViewController(MainStoryboard, "MainScreenViewController");
+			SetRootViewController(mainScreenViewController, true);
 		}
 
 
