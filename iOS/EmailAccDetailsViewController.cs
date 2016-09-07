@@ -1,4 +1,3 @@
-using Foundation;
 using System;
 using UIKit;
 using mPassword.Shared;
@@ -8,7 +7,9 @@ namespace mPassword.iOS
     public partial class EmailAccDetailsViewController : UIViewController
     {
 		UIBarButtonItem saveButton;
-		EmailAccount selectedAccount;
+		AccountViewModel selectedAccViewModel;
+
+		public EmailAccount SelectedAccount { set; get; }
 
 		public EmailAccDetailsViewController(IntPtr handle) : base(handle)
 		{
@@ -39,9 +40,19 @@ namespace mPassword.iOS
 
 				EmailAccountManager.SaveEmailAccount(SelectedAccount);
 
+				SetNewAccountInfo();
+
 				// Go back to prior screen
 				NavigationController.PopViewController(true);
 			}
+		}
+
+		void SetNewAccountInfo()
+		{
+			SelectedAccViewModel.accountId = SelectedAccount.ID;
+			SelectedAccViewModel.accountName = SelectedAccount.Name;
+			SelectedAccViewModel.accountType = "EmailAcc";
+			SelectedAccViewModel.isExpiredWarning = false;
 		}
 
 		bool validateEmailAccount()
@@ -86,17 +97,17 @@ namespace mPassword.iOS
 			PresentViewController(okAlertController, true, null);
 		}
 
-		public EmailAccount SelectedAccount
+		public AccountViewModel SelectedAccViewModel
 		{
 			get
 			{
-				return selectedAccount;
+				return selectedAccViewModel;
 			}
 			set
 			{
-				if (selectedAccount != value)
+				if (selectedAccViewModel != value)
 				{
-					selectedAccount = value;
+					selectedAccViewModel = value;
 					OnUpdateDetails();
 				}
 			}
@@ -104,13 +115,18 @@ namespace mPassword.iOS
 
 		void OnUpdateDetails()
 		{
+			SelectedAccount = new EmailAccount();
+
 			if (!IsViewLoaded)
 			{
 				return;
 			}
 
-			if (SelectedAccount != null && SelectedAccount.ID != 0)
+			if (selectedAccViewModel != null && selectedAccViewModel.accountId != 0)
 			{
+				// Get Selected Email Account
+				SelectedAccount = EmailAccountManager.GetEmailAccount(selectedAccViewModel.accountId);
+				
 				accountName.Text = SelectedAccount.Name;
 				userName.Text = SelectedAccount.UserName;
 				password.Text = SecurityUtil.Decrypt(SelectedAccount.Password);

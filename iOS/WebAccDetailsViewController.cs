@@ -1,4 +1,3 @@
-using Foundation;
 using System;
 using UIKit;
 using mPassword.Shared;
@@ -8,7 +7,9 @@ namespace mPassword.iOS
     public partial class WebAccDetailsViewController : UIViewController
     {
 		UIBarButtonItem saveButton;
-		WebAccount selectedAccount;
+		AccountViewModel selectedAccViewModel;
+
+		public WebAccount SelectedAccount { set; get; }
 
 		public WebAccDetailsViewController(IntPtr handle) : base(handle)
 		{
@@ -41,9 +42,19 @@ namespace mPassword.iOS
 
 				WebAccountManager.SaveWebAccount(SelectedAccount);
 
-				// Go back to prior screen
+				SetNewAccountInfo();
+
+				// Go back to prior scree
 				NavigationController.PopViewController(true);
 			}
+		}
+
+		void SetNewAccountInfo()
+		{
+			SelectedAccViewModel.accountId = SelectedAccount.ID;
+			SelectedAccViewModel.accountName = SelectedAccount.Name;
+			SelectedAccViewModel.accountType = "WebAcc";
+			SelectedAccViewModel.isExpiredWarning = false;
 		}
 
 		bool validateWebAccount()
@@ -96,17 +107,17 @@ namespace mPassword.iOS
 			PresentViewController(okAlertController, true, null);
 		}
 
-		public WebAccount SelectedAccount
+		public AccountViewModel SelectedAccViewModel
 		{
 			get
 			{
-				return selectedAccount;
+				return selectedAccViewModel;
 			}
 			set
 			{
-				if (selectedAccount != value)
+				if (selectedAccViewModel != value)
 				{
-					selectedAccount = value;
+					selectedAccViewModel = value;
 					OnUpdateDetails();
 				}
 			}
@@ -114,13 +125,18 @@ namespace mPassword.iOS
 
 		void OnUpdateDetails()
 		{
+			SelectedAccount = new WebAccount();
+
 			if (!IsViewLoaded)
 			{
 				return;
 			}
 
-			if (SelectedAccount != null && SelectedAccount.ID != 0)
+			if (selectedAccViewModel != null && selectedAccViewModel.accountId != 0)
 			{
+				// Get Selected Email Account
+				SelectedAccount = WebAccountManager.GetWebAccount(selectedAccViewModel.accountId);
+
 				accountName.Text = SelectedAccount.Name;
 				url.Text = SelectedAccount.URL;
 				userName.Text = SelectedAccount.UserName;

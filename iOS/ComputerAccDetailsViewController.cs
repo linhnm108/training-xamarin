@@ -8,7 +8,9 @@ namespace mPassword.iOS
     {
 
 		UIBarButtonItem saveButton;
-		ComputerAccount selectedAccount;
+		AccountViewModel selectedAccViewModel;
+
+		public ComputerAccount SelectedAccount { set; get; }
 
 		public ComputerAccDetailsViewController(IntPtr handle) : base(handle)
 		{
@@ -16,6 +18,8 @@ namespace mPassword.iOS
 
 		public override void ViewDidLoad()
 		{
+			OnUpdateDetails();
+
 			// Create Password Expired Durtion Picker View
 			var expiredDurationPickerModel = new PasswordExpiredDurationModelView();
 			var pickerView = new UIPickerView();
@@ -82,8 +86,6 @@ namespace mPassword.iOS
 			{
 				updatedDate.Text = string.Format("{0:MM/dd/yyyy}", (DateTime)((UIDatePicker)sender).Date);
 			};
-
-			OnUpdateDetails();
 		}
 
 		void SaveComputerAccount(object sender, EventArgs e)
@@ -108,9 +110,19 @@ namespace mPassword.iOS
 
 				ComputerAccountManager.SaveComputerAccount(SelectedAccount);
 
+				SetNewAccountInfo();
+
 				// Go back to prior screen
 				NavigationController.PopViewController(true);
 			}
+		}
+
+		void SetNewAccountInfo()
+		{
+			SelectedAccViewModel.accountId = SelectedAccount.ID;
+			SelectedAccViewModel.accountName = SelectedAccount.Name;
+			SelectedAccViewModel.accountType = "ComputerAcc";
+			SelectedAccViewModel.isExpiredWarning = SelectedAccViewModel.IsExpiredWarning(SelectedAccount.UpdatedDate, SelectedAccount.PasswordDuration);
 		}
 
 		bool validateComputerAccount()
@@ -159,17 +171,17 @@ namespace mPassword.iOS
 			PresentViewController(okAlertController, true, null);
 		}
 
-		public ComputerAccount SelectedAccount
+		public AccountViewModel SelectedAccViewModel
 		{
 			get
 			{
-				return selectedAccount;
+				return selectedAccViewModel;
 			}
 			set
 			{
-				if (selectedAccount != value)
+				if (selectedAccViewModel != value)
 				{
-					selectedAccount = value;
+					selectedAccViewModel = value;
 					OnUpdateDetails();
 				}
 			}
@@ -177,13 +189,17 @@ namespace mPassword.iOS
 
 		void OnUpdateDetails()
 		{
+			SelectedAccount = new ComputerAccount();
 			if (!IsViewLoaded)
 			{
 				return;
 			}
 
-			if (SelectedAccount != null && SelectedAccount.ID != 0)
+			if (selectedAccViewModel != null && selectedAccViewModel.accountId != 0)
 			{
+				// Get bank account
+				SelectedAccount = ComputerAccountManager.GetComputerAccount(selectedAccViewModel.accountId);
+
 				accountName.Text = SelectedAccount.Name;
 				userName.Text = SelectedAccount.UserName;
 				password.Text = SecurityUtil.Decrypt(SelectedAccount.Password);

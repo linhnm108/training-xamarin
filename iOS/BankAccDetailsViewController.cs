@@ -7,7 +7,9 @@ namespace mPassword.iOS
     public partial class BankAccDetailsViewController : UIViewController
     {
 		UIBarButtonItem saveButton;
-		BankAccount selectedAccount;
+		AccountViewModel selectedAccViewModel;
+
+		public BankAccount SelectedAccount { set; get; }
 
 		public BankAccDetailsViewController (IntPtr handle) : base (handle)
         {
@@ -15,6 +17,8 @@ namespace mPassword.iOS
 
 		public override void ViewDidLoad()
 		{
+			OnUpdateDetails();
+
 			// Create Password Expired Durtion Picker View
 			var expiredDurationPickerModel = new PasswordExpiredDurationModelView();
 			var pickerView = new UIPickerView();
@@ -81,8 +85,6 @@ namespace mPassword.iOS
 			{
 				updatedDate.Text = string.Format("{0:MM/dd/yyyy}", (DateTime) ((UIDatePicker)sender).Date);
 			};
-
-			OnUpdateDetails();
 		}
 
 		void SaveBankAccount(object sender, EventArgs e)
@@ -112,9 +114,19 @@ namespace mPassword.iOS
 
 				BankAccountManager.SaveBankAccount(SelectedAccount);
 
+				SetNewAccountInfo();
+
 				// Go back to prior screen
 				NavigationController.PopViewController(true);
 			}
+		}
+
+		void SetNewAccountInfo()
+		{
+			SelectedAccViewModel.accountId = SelectedAccount.ID;
+			SelectedAccViewModel.accountName = SelectedAccount.Name;
+			SelectedAccViewModel.accountType = "BankAcc";
+			SelectedAccViewModel.isExpiredWarning = SelectedAccViewModel.IsExpiredWarning(SelectedAccount.UpdatedDate, SelectedAccount.PasswordDuration);
 		}
 
 		bool validateBankAccount()
@@ -171,17 +183,17 @@ namespace mPassword.iOS
 			PresentViewController(okAlertController, true, null);
 		}
 
-		public BankAccount SelectedAccount
+		public AccountViewModel SelectedAccViewModel
 		{
 			get
 			{
-				return selectedAccount;
+				return selectedAccViewModel;
 			}
 			set
 			{
-				if (selectedAccount != value)
+				if (selectedAccViewModel != value)
 				{
-					selectedAccount = value;
+					selectedAccViewModel = value;
 					OnUpdateDetails();
 				}
 			}
@@ -189,13 +201,18 @@ namespace mPassword.iOS
 
 		void OnUpdateDetails()
 		{
+			SelectedAccount = new BankAccount();
+
 			if (!IsViewLoaded)
 			{
 				return;
 			}
 
-			if (SelectedAccount != null && SelectedAccount.ID != 0)
+			if (selectedAccViewModel != null && selectedAccViewModel.accountId != 0)
 			{
+				// Get bank account
+				SelectedAccount = BankAccountManager.GetBankAccount(selectedAccViewModel.accountId);
+				
 				accountName.Text = SelectedAccount.Name;
 				accountNumber.Text = SelectedAccount.AccountNumber;
 				atmPassword.Text = SecurityUtil.Decrypt(SelectedAccount.AtmPassword);
