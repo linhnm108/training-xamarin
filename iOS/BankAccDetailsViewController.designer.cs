@@ -28,6 +28,10 @@ namespace mPassword.iOS
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UIButton btnSave { get; set; }
+
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField iBankPassword { get; set; }
 
         [Outlet]
@@ -54,6 +58,10 @@ namespace mPassword.iOS
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UITextField updatedDate { get; set; }
 
+        [Action ("BtnSave_TouchUpInside:")]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        partial void BtnSave_TouchUpInside (UIKit.UIButton sender);
+
         void ReleaseDesignerOutlets ()
         {
             if (accountName != null) {
@@ -69,6 +77,11 @@ namespace mPassword.iOS
             if (atmPassword != null) {
                 atmPassword.Dispose ();
                 atmPassword = null;
+            }
+
+            if (btnSave != null) {
+                btnSave.Dispose ();
+                btnSave = null;
             }
 
             if (iBankPassword != null) {

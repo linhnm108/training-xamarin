@@ -6,7 +6,7 @@ namespace mPassword.iOS
 {
     public partial class EmailAccDetailsViewController : UIViewController
     {
-		UIBarButtonItem saveButton;
+		UIBarButtonItem saveBarButton;
 		AccountViewModel selectedAccViewModel;
 
 		public EmailAccount SelectedAccount { set; get; }
@@ -18,11 +18,16 @@ namespace mPassword.iOS
 		public override void ViewDidLoad()
 		{
 			// Create save button
-			saveButton = new UIBarButtonItem(UIBarButtonSystemItem.Save);
-			saveButton.Clicked += SaveEmailAccount;
-			NavigationItem.RightBarButtonItem = saveButton;
+			saveBarButton = new UIBarButtonItem(UIBarButtonSystemItem.Save);
+			saveBarButton.Clicked += SaveEmailAccount;
+			NavigationItem.RightBarButtonItem = saveBarButton;
 
 			OnUpdateDetails();
+		}
+
+		partial void BtnSave_TouchUpInside(UIButton sender)
+		{
+			SaveEmailAccount(sender, null);
 		}
 
 		void SaveEmailAccount(object sender, EventArgs e)

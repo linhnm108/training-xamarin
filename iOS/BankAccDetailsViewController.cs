@@ -6,7 +6,7 @@ namespace mPassword.iOS
 {
     public partial class BankAccDetailsViewController : UIViewController
     {
-		UIBarButtonItem saveButton;
+		UIBarButtonItem saveBarButton;
 		AccountViewModel selectedAccViewModel;
 
 		public BankAccount SelectedAccount { set; get; }
@@ -63,9 +63,9 @@ namespace mPassword.iOS
 			passwordExpiredDuration.InputAccessoryView = toolbar;
 
 			// Create save button
-			saveButton = new UIBarButtonItem(UIBarButtonSystemItem.Save);
-			saveButton.Clicked += SaveBankAccount;
-			NavigationItem.RightBarButtonItem = saveButton;
+			saveBarButton = new UIBarButtonItem(UIBarButtonSystemItem.Save);
+			saveBarButton.Clicked += SaveBankAccount;
+			NavigationItem.RightBarButtonItem = saveBarButton;
 
 			if (SelectedAccount.PasswordDuration == 0)
 			{
@@ -85,6 +85,11 @@ namespace mPassword.iOS
 			{
 				updatedDate.Text = string.Format("{0:MM/dd/yyyy}", (DateTime) ((UIDatePicker)sender).Date);
 			};
+		}
+
+		partial void BtnSave_TouchUpInside(UIButton sender)
+		{
+			SaveBankAccount(sender, null);
 		}
 
 		void SaveBankAccount(object sender, EventArgs e)

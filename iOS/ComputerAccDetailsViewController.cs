@@ -7,7 +7,7 @@ namespace mPassword.iOS
     public partial class ComputerAccDetailsViewController : UIViewController
     {
 
-		UIBarButtonItem saveButton;
+		UIBarButtonItem saveBarButton;
 		AccountViewModel selectedAccViewModel;
 
 		public ComputerAccount SelectedAccount { set; get; }
@@ -64,9 +64,9 @@ namespace mPassword.iOS
 			passwordExpiredDuration.InputAccessoryView = toolbar;
 
 			// Create save button
-			saveButton = new UIBarButtonItem(UIBarButtonSystemItem.Save);
-			saveButton.Clicked += SaveComputerAccount;
-			NavigationItem.RightBarButtonItem = saveButton;
+			saveBarButton = new UIBarButtonItem(UIBarButtonSystemItem.Save);
+			saveBarButton.Clicked += SaveComputerAccount;
+			NavigationItem.RightBarButtonItem = saveBarButton;
 
 			if (SelectedAccount.PasswordDuration == 0)
 			{
@@ -86,6 +86,11 @@ namespace mPassword.iOS
 			{
 				updatedDate.Text = string.Format("{0:MM/dd/yyyy}", (DateTime)((UIDatePicker)sender).Date);
 			};
+		}
+
+		partial void BtnSave_TouchUpInside(UIButton sender)
+		{
+			SaveComputerAccount(sender, null);
 		}
 
 		void SaveComputerAccount(object sender, EventArgs e)

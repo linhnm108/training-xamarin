@@ -588,6 +588,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3669" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="20" y="540" width="560" height="30"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.4" blue="0.2" alpha="1"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                </state>
+                                <connections>
+                                    <action selector="BtnSave_TouchUpInside:" destination="1613" id="3920" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint id="1839" firstItem="1614" firstAttribute="trailing" secondItem="1822" secondAttribute="trailing" constant="20"/>
@@ -620,6 +631,10 @@
                             <constraint id="1978" firstItem="1973" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
                             <constraint id="1979" firstItem="1614" firstAttribute="trailing" secondItem="1973" secondAttribute="trailing" constant="20"/>
                             <constraint id="2035" firstItem="1973" firstAttribute="top" secondItem="1963" secondAttribute="bottom" constant="20"/>
+                            <constraint id="3670" firstItem="3669" firstAttribute="top" secondItem="1973" secondAttribute="bottom" constant="20"/>
+                            <constraint id="3671" firstItem="3669" firstAttribute="top" secondItem="1973" secondAttribute="bottom" constant="20"/>
+                            <constraint id="3672" firstItem="3669" firstAttribute="leading" secondItem="1614" secondAttribute="leading" constant="20"/>
+                            <constraint id="3673" firstItem="1614" firstAttribute="trailing" secondItem="3669" secondAttribute="trailing" constant="20"/>
                         </constraints>
                     </view>
                     <connections>
@@ -633,6 +648,7 @@
                         <outlet property="note" destination="1961" id="name-outlet-1961"/>
                         <outlet property="passwordExpiredDuration" destination="1963" id="name-outlet-1963"/>
                         <outlet property="updatedDate" destination="1973" id="name-outlet-1973"/>
+                        <outlet property="btnSave" destination="3669" id="name-outlet-3669"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1615" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -676,6 +692,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3674" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="20" y="290" width="560" height="30"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.4" blue="0.2" alpha="1"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                </state>
+                                <connections>
+                                    <action selector="BtnSave_TouchUpInside:" destination="2505" id="3921" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint id="2599" firstItem="2583" firstAttribute="leading" secondItem="2506" secondAttribute="leading" constant="20"/>
@@ -693,6 +720,9 @@
                             <constraint id="2632" firstItem="2627" firstAttribute="top" secondItem="2626" secondAttribute="bottom" constant="18"/>
                             <constraint id="2633" firstItem="2627" firstAttribute="leading" secondItem="2506" secondAttribute="leading" constant="20"/>
                             <constraint id="2634" firstItem="2506" firstAttribute="trailing" secondItem="2627" secondAttribute="trailing" constant="20"/>
+                            <constraint id="3694" firstItem="3674" firstAttribute="top" secondItem="2627" secondAttribute="bottom" constant="20"/>
+                            <constraint id="3734" firstItem="3674" firstAttribute="leading" secondItem="2506" secondAttribute="leading" constant="20"/>
+                            <constraint id="3754" firstItem="2506" firstAttribute="trailing" secondItem="3674" secondAttribute="trailing" constant="20"/>
                         </constraints>
                     </view>
                     <connections>
@@ -701,6 +731,7 @@
                         <outlet property="password" destination="2622" id="name-outlet-2622"/>
                         <outlet property="passwordExpiredDuration" destination="2626" id="name-outlet-2626"/>
                         <outlet property="updatedDate" destination="2627" id="name-outlet-2627"/>
+                        <outlet property="btnSave" destination="3674" id="name-outlet-3674"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2507" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -734,6 +765,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3816" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="20" y="190" width="560" height="30"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.4" blue="0.2" alpha="1"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                </state>
+                                <connections>
+                                    <action selector="UIButton3674_TouchUpInside:" destination="3818" id="3817" eventType="touchUpInside"/>
+                                    <action selector="BtnSave_TouchUpInside:" destination="2804" id="3923" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint id="2809" firstItem="2808" firstAttribute="leading" secondItem="2805" secondAttribute="leading" constant="20"/>
@@ -745,12 +788,16 @@
                             <constraint id="2819" firstItem="2815" firstAttribute="top" secondItem="2814" secondAttribute="bottom" constant="20"/>
                             <constraint id="2820" firstItem="2815" firstAttribute="leading" secondItem="2805" secondAttribute="leading" constant="20"/>
                             <constraint id="2821" firstItem="2805" firstAttribute="trailing" secondItem="2815" secondAttribute="trailing" constant="20"/>
+                            <constraint id="3860" firstItem="3816" firstAttribute="top" secondItem="2815" secondAttribute="bottom" constant="20"/>
+                            <constraint id="3880" firstItem="3816" firstAttribute="leading" secondItem="2805" secondAttribute="leading" constant="20"/>
+                            <constraint id="3900" firstItem="2805" firstAttribute="trailing" secondItem="3816" secondAttribute="trailing" constant="20"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="accountName" destination="2808" id="name-outlet-2808"/>
                         <outlet property="userName" destination="2814" id="name-outlet-2814"/>
                         <outlet property="password" destination="2815" id="name-outlet-2815"/>
+                        <outlet property="btnSave" destination="3816" id="name-outlet-3816"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2806" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -794,6 +841,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3775" translatesAutoresizingMaskIntoConstraints="NO" misplaced="YES">
+                                <rect key="frame" x="20" y="290" width="560" height="30"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.4" blue="0.2" alpha="1"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                </state>
+                                <connections>
+                                    <action selector="UIButton3674_TouchUpInside:" destination="3777" id="3776" eventType="touchUpInside"/>
+                                    <action selector="BtnSave_TouchUpInside:" destination="2873" id="3922" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint id="2882" firstItem="2877" firstAttribute="leading" secondItem="2874" secondAttribute="leading" constant="20"/>
@@ -811,6 +870,9 @@
                             <constraint id="2894" firstItem="2881" firstAttribute="top" secondItem="2880" secondAttribute="bottom" constant="20"/>
                             <constraint id="2895" firstItem="2881" firstAttribute="leading" secondItem="2874" secondAttribute="leading" constant="20"/>
                             <constraint id="2896" firstItem="2874" firstAttribute="trailing" secondItem="2881" secondAttribute="trailing" constant="20"/>
+                            <constraint id="3796" firstItem="3775" firstAttribute="top" secondItem="2881" secondAttribute="bottom" constant="20"/>
+                            <constraint id="3819" firstItem="3775" firstAttribute="leading" secondItem="2874" secondAttribute="leading" constant="20"/>
+                            <constraint id="3839" firstItem="2874" firstAttribute="trailing" secondItem="3775" secondAttribute="trailing" constant="20"/>
                         </constraints>
                     </view>
                     <connections>
@@ -819,6 +881,7 @@
                         <outlet property="userName" destination="2879" id="name-outlet-2879"/>
                         <outlet property="password" destination="2880" id="name-outlet-2880"/>
                         <outlet property="note" destination="2881" id="name-outlet-2881"/>
+                        <outlet property="btnSave" destination="3775" id="name-outlet-3775"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2875" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -907,6 +970,7 @@
                         <segue id="3493" destination="2873" kind="show" identifier="showWebAccDetails"/>
                         <segue id="3553" destination="2505" kind="show" identifier="showComputerAccDetails"/>
                         <segue id="3649" destination="2804" kind="show" identifier="showEmailAccDetails"/>
+                        <segue id="4305" destination="3929" kind="show" identifier="editUser"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jj7-2r-V8v" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -931,6 +995,80 @@
             </objects>
             <point key="canvasLocation" x="26" y="2753"/>
         </scene>
+        <scene sceneID="3928">
+            <objects>
+                <viewController id="3929" sceneMemberID="viewController" customClass="EditUserViewController" storyboardIdentifier="EditUserViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" title="User Info">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3926"/>
+                        <viewControllerLayoutGuide type="bottom" id="3927"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3930">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="3977" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Username">
+                                <rect key="frame" x="20" y="40" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="3998" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Old password">
+                                <rect key="frame" x="20" y="90" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="3999" translatesAutoresizingMaskIntoConstraints="NO" placeholder="New password">
+                                <rect key="frame" x="20" y="140" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="4000" translatesAutoresizingMaskIntoConstraints="NO" placeholder="Confirm new password">
+                                <rect key="frame" x="20" y="190" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4012" translatesAutoresizingMaskIntoConstraints="NO">
+                                <rect key="frame" x="20" y="240" width="560" height="30"/>
+                                <color key="backgroundColor" colorSpace="calibratedRGB" red="0" green="0.4" blue="0.2" alpha="1"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleColor" colorSpace="calibratedWhite" white="1" alpha="1"/>
+                                </state>
+                                <connections>
+                                    <action selector="BtnSave_TouchUpInside:" destination="3929" id="4070" eventType="touchUpInside"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint id="4001" firstItem="3977" firstAttribute="leading" secondItem="3930" secondAttribute="leading" constant="20"/>
+                            <constraint id="4002" firstItem="3930" firstAttribute="trailing" secondItem="3977" secondAttribute="trailing" constant="20"/>
+                            <constraint id="4003" firstItem="3998" firstAttribute="top" secondItem="3977" secondAttribute="bottom" constant="20"/>
+                            <constraint id="4004" firstItem="3998" firstAttribute="leading" secondItem="3930" secondAttribute="leading" constant="20"/>
+                            <constraint id="4005" firstItem="3930" firstAttribute="trailing" secondItem="3998" secondAttribute="trailing" constant="20"/>
+                            <constraint id="4006" firstItem="3999" firstAttribute="top" secondItem="3998" secondAttribute="bottom" constant="20"/>
+                            <constraint id="4007" firstItem="3999" firstAttribute="leading" secondItem="3930" secondAttribute="leading" constant="20"/>
+                            <constraint id="4008" firstItem="3930" firstAttribute="trailing" secondItem="3999" secondAttribute="trailing" constant="20"/>
+                            <constraint id="4009" firstItem="4000" firstAttribute="top" secondItem="3999" secondAttribute="bottom" constant="20"/>
+                            <constraint id="4010" firstItem="4000" firstAttribute="leading" secondItem="3930" secondAttribute="leading" constant="20"/>
+                            <constraint id="4011" firstItem="3930" firstAttribute="trailing" secondItem="4000" secondAttribute="trailing" constant="20"/>
+                            <constraint id="4013" firstItem="4012" firstAttribute="top" secondItem="4000" secondAttribute="bottom" constant="20"/>
+                            <constraint id="4091" firstItem="4012" firstAttribute="leading" secondItem="3930" secondAttribute="leading" constant="20"/>
+                            <constraint id="4112" firstItem="3930" firstAttribute="trailing" secondItem="4012" secondAttribute="trailing" constant="20"/>
+                            <constraint id="4156" firstItem="3977" firstAttribute="top" secondItem="3926" secondAttribute="bottom" constant="20"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="userName" destination="3977" id="name-outlet-3977"/>
+                        <outlet property="oldPassword" destination="3998" id="name-outlet-3998"/>
+                        <outlet property="newPassword" destination="3999" id="name-outlet-3999"/>
+                        <outlet property="confirmNewPassword" destination="4000" id="name-outlet-4000"/>
+                        <outlet property="btnSave" destination="4012" id="name-outlet-4012"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3931" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4206" y="-382"/>
+        </scene>
     </scenes>
     <resources>
         <image name="user" width="126" height="126"/>
@@ -941,5 +1079,7 @@
         <image name="Email" width="25" height="25"/>
         <image name="Web" width="25" height="25"/>
         <image name="Menu" width="18" height="18"/>
+        <image name="Images/edit-user.png" width="30" height="30"/>
+        <image name="Images/logout.png" width="30" height="30"/>
     </resources>
 </document>

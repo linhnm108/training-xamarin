@@ -6,7 +6,7 @@ namespace mPassword.iOS
 {
     public partial class WebAccDetailsViewController : UIViewController
     {
-		UIBarButtonItem saveButton;
+		UIBarButtonItem saveBarButton;
 		AccountViewModel selectedAccViewModel;
 
 		public WebAccount SelectedAccount { set; get; }
@@ -18,11 +18,16 @@ namespace mPassword.iOS
 		public override void ViewDidLoad()
 		{
 			// Create save button
-			saveButton = new UIBarButtonItem(UIBarButtonSystemItem.Save);
-			saveButton.Clicked += SaveWebAccount;
-			NavigationItem.RightBarButtonItem = saveButton;
+			saveBarButton = new UIBarButtonItem(UIBarButtonSystemItem.Save);
+			saveBarButton.Clicked += SaveWebAccount;
+			NavigationItem.RightBarButtonItem = saveBarButton;
 
 			OnUpdateDetails();
+		}
+
+		partial void BtnSave_TouchUpInside(UIButton sender)
+		{
+			SaveWebAccount(sender, null);
 		}
 
 		void SaveWebAccount(object sender, EventArgs e)

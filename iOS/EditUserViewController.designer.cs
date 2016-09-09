@@ -11,28 +11,24 @@ using UIKit;
 
 namespace mPassword.iOS
 {
-    [Register ("ComputerAccDetailsViewController")]
-    partial class ComputerAccDetailsViewController
+    [Register ("EditUserViewController")]
+    partial class EditUserViewController
     {
-        [Outlet]
-        [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField accountName { get; set; }
-
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
         UIKit.UIButton btnSave { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField password { get; set; }
+        UIKit.UITextField confirmNewPassword { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField passwordExpiredDuration { get; set; }
+        UIKit.UITextField newPassword { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        UIKit.UITextField updatedDate { get; set; }
+        UIKit.UITextField oldPassword { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
@@ -44,29 +40,24 @@ namespace mPassword.iOS
 
         void ReleaseDesignerOutlets ()
         {
-            if (accountName != null) {
-                accountName.Dispose ();
-                accountName = null;
-            }
-
             if (btnSave != null) {
                 btnSave.Dispose ();
                 btnSave = null;
             }
 
-            if (password != null) {
-                password.Dispose ();
-                password = null;
+            if (confirmNewPassword != null) {
+                confirmNewPassword.Dispose ();
+                confirmNewPassword = null;
             }
 
-            if (passwordExpiredDuration != null) {
-                passwordExpiredDuration.Dispose ();
-                passwordExpiredDuration = null;
+            if (newPassword != null) {
+                newPassword.Dispose ();
+                newPassword = null;
             }
 
-            if (updatedDate != null) {
-                updatedDate.Dispose ();
-                updatedDate = null;
+            if (oldPassword != null) {
+                oldPassword.Dispose ();
+                oldPassword = null;
             }
 
             if (userName != null) {

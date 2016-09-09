@@ -6,9 +6,13 @@
 
 		public const string ERROR_SIGNUP = "Error SignUp";
 
+		public const string ERROR_EDIT_USER = "Error Edit User";
+
 		public const string ERROR_DATA = "Error Input Data";
 
 		public const string ERROR_USER_AUTHENTICATION = "The user name and password is incorrect.";
+
+		public const string ERROR_OLD_PASSWORD_INCORRECT = "The old password is incorrect.";
 
 		public const string ERROR_PASSWORD_NOT_MATCH = "Password not match.";
 

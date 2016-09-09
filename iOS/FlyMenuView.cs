@@ -1,13 +1,30 @@
 using System;
+using Foundation;
+using ObjCRuntime;
 using UIKit;
 
 namespace mPassword.iOS
 {
     public partial class FlyMenuView : UIView
     {
+		
 		public FlyMenuView (IntPtr handle) : base (handle)
         {
-        }
+		}
+
+		public UIButton EditUserButton
+		{
+			set { btnEditAccount = value; }
+			get { return btnEditAccount; }
+		}
+
+		public static FlyMenuView Create()
+		{
+			var arr = NSBundle.MainBundle.LoadNib("FlyMenuView", null, null);
+			var view = Runtime.GetNSObject<FlyMenuView>(arr.ValueAt(0));
+
+			return view;
+		}
 
 		partial void BtnLogout_TouchUpInside(UIButton sender)
 		{

@@ -4,7 +4,6 @@ using UIKit;
 using System.Collections.Generic;
 using mPassword.Shared;
 using CoreAnimation;
-using ObjCRuntime;
 using System.Drawing;
 
 namespace mPassword.iOS
@@ -26,7 +25,7 @@ namespace mPassword.iOS
 
 		UIBarButtonItem settingButton;
 
-		UIView flyMeanuView;
+		FlyMenuView flyMenuView;
 
 		public MainScreenViewController (IntPtr handle) : base (handle)
         {
@@ -52,11 +51,16 @@ namespace mPassword.iOS
 			});
 			NavigationItem.LeftBarButtonItem = settingButton;
 
-			var arr = NSBundle.MainBundle.LoadNib("FlyMenuView", null, null);
-			flyMeanuView = Runtime.GetNSObject<FlyMenuView>(arr.ValueAt(0));
-			flyMeanuView.Hidden = true;
-			flyMeanuView.Frame = new RectangleF(0f, 0f, 240f, 140f);
+			// Create Fly Menu View
+			flyMenuView = FlyMenuView.Create();
+			flyMenuView.Hidden = true;
+			flyMenuView.Frame = new RectangleF(0f, 0f, 240f, 140f);
 
+			flyMenuView.EditUserButton.TouchUpInside += (sender, e) =>
+			{
+				PerformFlyMenu();
+				PerformSegue("editUser", this);
+			};
 
 			// Pull to refresh
 			var refreshControl = new UIRefreshControl();
@@ -74,13 +78,11 @@ namespace mPassword.iOS
 
 		void PerformFlyMenu()
 		{
-			View.AddSubview(flyMeanuView);
-
-			flyMeanuView.Hidden = !flyMeanuView.Hidden;
+			flyMenuView.Hidden = !flyMenuView.Hidden;
 			var transition = new CATransition();
 			transition.Duration = 0.25f;
 			transition.Type = CAAnimation.TransitionPush;
-			if (flyMeanuView.Hidden)
+			if (flyMenuView.Hidden)
 			{
 				transition.TimingFunction = CAMediaTimingFunction.FromName(new NSString("easeOut"));
 				transition.Subtype = CAAnimation.TransitionFromRight;
@@ -90,7 +92,9 @@ namespace mPassword.iOS
 				transition.TimingFunction = CAMediaTimingFunction.FromName(new NSString("easeIn"));
 				transition.Subtype = CAAnimation.TransitionFromLeft;
 			}
-			flyMeanuView.Layer.AddAnimation(transition, null);
+			flyMenuView.Layer.AddAnimation(transition, null);
+
+			View.AddSubview(flyMenuView);
 		}
 
 		public override UITableViewRowAction[] EditActionsForRow(UITableView tableView, NSIndexPath indexPath)
