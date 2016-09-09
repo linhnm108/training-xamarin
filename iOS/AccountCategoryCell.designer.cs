@@ -16,15 +16,15 @@ namespace mPassword.iOS
     {
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        public UIKit.UILabel quantityLabel { get; set; }
+        UIKit.UILabel quantityLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        public UIKit.UILabel titleLabel { get; set; }
+        UIKit.UILabel titleLabel { get; set; }
 
         [Outlet]
         [GeneratedCode ("iOS Designer", "1.0")]
-        public UIKit.UIButton toggleButton { get; set; }
+        UIKit.UIButton toggleButton { get; set; }
 
         void ReleaseDesignerOutlets ()
         {

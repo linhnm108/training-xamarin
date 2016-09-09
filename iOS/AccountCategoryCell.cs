@@ -8,5 +8,23 @@ namespace mPassword.iOS
         public AccountCategoryCell (IntPtr handle) : base (handle)
         {
         }
+
+		public UIButton ToggleButton
+		{
+			set { toggleButton = value; }
+			get { return toggleButton; }
+		}
+
+		public UILabel TitleLabel
+		{
+			set { titleLabel = value; }
+			get { return titleLabel; }
+		}
+
+		public UILabel QuantityLabel
+		{
+			set { quantityLabel = value; }
+			get { return quantityLabel; }
+		}
     }
 }

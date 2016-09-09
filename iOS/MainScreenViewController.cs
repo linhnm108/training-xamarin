@@ -3,6 +3,9 @@ using System;
 using UIKit;
 using System.Collections.Generic;
 using mPassword.Shared;
+using CoreAnimation;
+using ObjCRuntime;
+using System.Drawing;
 
 namespace mPassword.iOS
 {
@@ -21,6 +24,10 @@ namespace mPassword.iOS
 
 		AccountViewModel newAccount;
 
+		UIBarButtonItem settingButton;
+
+		UIView flyMeanuView;
+
 		public MainScreenViewController (IntPtr handle) : base (handle)
         {
         }
@@ -37,6 +44,20 @@ namespace mPassword.iOS
 			// Edit button
 			NavigationItem.RightBarButtonItem = EditButtonItem;
 
+			// Settings button
+			settingButton = new UIBarButtonItem(UIImage.FromBundle("Menu"), UIBarButtonItemStyle.Plain, (sender, args) =>
+			{
+				// button was clicked
+				PerformFlyMenu();
+			});
+			NavigationItem.LeftBarButtonItem = settingButton;
+
+			var arr = NSBundle.MainBundle.LoadNib("FlyMenuView", null, null);
+			flyMeanuView = Runtime.GetNSObject<FlyMenuView>(arr.ValueAt(0));
+			flyMeanuView.Hidden = true;
+			flyMeanuView.Frame = new RectangleF(0f, 0f, 240f, 140f);
+
+
 			// Pull to refresh
 			var refreshControl = new UIRefreshControl();
 			refreshControl.ValueChanged += (sender, e) =>
@@ -49,6 +70,27 @@ namespace mPassword.iOS
 				});
 			};
 			RefreshControl = refreshControl;
+		}
+
+		void PerformFlyMenu()
+		{
+			View.AddSubview(flyMeanuView);
+
+			flyMeanuView.Hidden = !flyMeanuView.Hidden;
+			var transition = new CATransition();
+			transition.Duration = 0.25f;
+			transition.Type = CAAnimation.TransitionPush;
+			if (flyMeanuView.Hidden)
+			{
+				transition.TimingFunction = CAMediaTimingFunction.FromName(new NSString("easeOut"));
+				transition.Subtype = CAAnimation.TransitionFromRight;
+			}
+			else
+			{
+				transition.TimingFunction = CAMediaTimingFunction.FromName(new NSString("easeIn"));
+				transition.Subtype = CAAnimation.TransitionFromLeft;
+			}
+			flyMeanuView.Layer.AddAnimation(transition, null);
 		}
 
 		public override UITableViewRowAction[] EditActionsForRow(UITableView tableView, NSIndexPath indexPath)
@@ -112,11 +154,11 @@ namespace mPassword.iOS
 		{
 			var header = tableView.DequeueReusableCell(HeaderCellIdentifier) as AccountCategoryCell;
 
-			header.toggleButton.Tag = section;
-			header.titleLabel.Text = accountCategories[(int)section].categoryName;
-			header.quantityLabel.Text = accountCategories[(int)section].quantity.ToString(); 
+			header.ToggleButton.Tag = section;
+			header.TitleLabel.Text = accountCategories[(int)section].categoryName;
+			header.QuantityLabel.Text = accountCategories[(int)section].quantity.ToString(); 
 
-			header.toggleButton.TouchUpInside += ToggleButton_TouchUpInside;
+			header.ToggleButton.TouchUpInside += ToggleButton_TouchUpInside;
 
 			return header.ContentView;
 		}

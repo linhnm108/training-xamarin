@@ -528,7 +528,7 @@
         </scene>
         <scene sceneID="1612">
             <objects>
-                <viewController id="1613" sceneMemberID="viewController" customClass="BankAccDetailsViewController" storyboardIdentifier="BankAccDetailsViewController">
+                <viewController id="1613" sceneMemberID="viewController" customClass="BankAccDetailsViewController" storyboardIdentifier="BankAccDetailsViewController" title="Bank">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1610"/>
                         <viewControllerLayoutGuide type="bottom" id="1611"/>
@@ -641,7 +641,7 @@
         </scene>
         <scene sceneID="2504">
             <objects>
-                <viewController id="2505" sceneMemberID="viewController" customClass="ComputerAccDetailsViewController">
+                <viewController id="2505" sceneMemberID="viewController" customClass="ComputerAccDetailsViewController" title="Computer">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2502"/>
                         <viewControllerLayoutGuide type="bottom" id="2503"/>
@@ -709,7 +709,7 @@
         </scene>
         <scene sceneID="2803">
             <objects>
-                <viewController id="2804" sceneMemberID="viewController" customClass="EmailAccDetailsViewController">
+                <viewController id="2804" sceneMemberID="viewController" customClass="EmailAccDetailsViewController" title="Email">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2801"/>
                         <viewControllerLayoutGuide type="bottom" id="2802"/>
@@ -759,7 +759,7 @@
         </scene>
         <scene sceneID="2872">
             <objects>
-                <viewController id="2873" sceneMemberID="viewController" customClass="WebAccDetailsViewController">
+                <viewController id="2873" sceneMemberID="viewController" customClass="WebAccDetailsViewController" title="Web">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2870"/>
                         <viewControllerLayoutGuide type="bottom" id="2871"/>
@@ -901,7 +901,7 @@
                             <outlet property="delegate" destination="2ip-lX-Zh3" id="yOd-Lm-ocV"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Password" id="rTh-dQ-lnG"/>
+                    <navigationItem key="navigationItem" title="mPassword" id="rTh-dQ-lnG"/>
                     <connections>
                         <segue id="3449" destination="1613" kind="show" identifier="showBankAccDetails"/>
                         <segue id="3493" destination="2873" kind="show" identifier="showWebAccDetails"/>
@@ -940,5 +940,6 @@
         <image name="Computer" width="25" height="25"/>
         <image name="Email" width="25" height="25"/>
         <image name="Web" width="25" height="25"/>
+        <image name="Menu" width="18" height="18"/>
     </resources>
 </document>
