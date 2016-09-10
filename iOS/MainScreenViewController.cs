@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using mPassword.Shared;
 using CoreAnimation;
 using System.Drawing;
+using CoreGraphics;
 
 namespace mPassword.iOS
 {
@@ -51,10 +52,9 @@ namespace mPassword.iOS
 			});
 			NavigationItem.LeftBarButtonItem = settingButton;
 
-			// Create Fly Menu View
+			// Create Fly Menu Vie
 			flyMenuView = FlyMenuView.Create();
 			flyMenuView.Hidden = true;
-			flyMenuView.Frame = new RectangleF(0f, 0f, 240f, 140f);
 
 			flyMenuView.EditUserButton.TouchUpInside += (sender, e) =>
 			{
@@ -67,6 +67,7 @@ namespace mPassword.iOS
 			refreshControl.ValueChanged += (sender, e) =>
 			{
 				GetAllUserAccounts();
+
 				BeginInvokeOnMainThread(() =>
 				{
 					TableView.ReloadData();
@@ -93,6 +94,7 @@ namespace mPassword.iOS
 				transition.Subtype = CAAnimation.TransitionFromLeft;
 			}
 			flyMenuView.Layer.AddAnimation(transition, null);
+			flyMenuView.Layer.Frame = new RectangleF(new PointF(0, 0 ), new SizeF(240, 140));
 
 			View.AddSubview(flyMenuView);
 		}
@@ -160,7 +162,16 @@ namespace mPassword.iOS
 
 			header.ToggleButton.Tag = section;
 			header.TitleLabel.Text = accountCategories[(int)section].categoryName;
-			header.QuantityLabel.Text = accountCategories[(int)section].quantity.ToString(); 
+			header.QuantityLabel.Text = accountCategories[(int)section].quantity.ToString();
+
+			var angle = (nfloat) 0.0;
+
+			if (accountCategories[(int)section].collapsed)
+			{
+				angle = (nfloat)(Math.PI);
+			}
+
+			header.ToggleButton.Transform = CGAffineTransform.MakeRotation(angle);
 
 			header.ToggleButton.TouchUpInside += ToggleButton_TouchUpInside;
 
@@ -186,8 +197,8 @@ namespace mPassword.iOS
 
 		public override UITableViewCell GetCell(UITableView tableView, NSIndexPath indexPath)
 		{
-			var cell = tableView.DequeueReusableCell(AccCellIdentifier, indexPath) as UITableViewCell;
-			cell.TextLabel.TextColor = UIColor.Gray;
+			var cell = tableView.DequeueReusableCell(AccCellIdentifier, indexPath) as AccountCell;
+			cell.SubTitleLabel.TextColor = UIColor.Gray;
 			int row = indexPath.Row;
 
 			if (hasInsertionRow)
@@ -198,27 +209,33 @@ namespace mPassword.iOS
 
 					if (string.Equals(category.categoryName, "Bank Accounts"))
 					{
-						cell.TextLabel.Text = "Add new a bank account";
+						cell.SubTitleLabel.Text = "Add new a bank account";
 					}
 					else if (string.Equals(category.categoryName, "Computer Accounts"))
 					{
-						cell.TextLabel.Text = "Add new a computer account";
+						cell.SubTitleLabel.Text = "Add new a computer account";
 					}
 					else if (string.Equals(category.categoryName, "Email Accounts"))
 					{
-						cell.TextLabel.Text = "Add new an email account";
+						cell.SubTitleLabel.Text = "Add new an email account";
 					}
 					else if (string.Equals(category.categoryName, "Web Accounts"))
 					{
-						cell.TextLabel.Text = "Add new a web account";
+						cell.SubTitleLabel.Text = "Add new a web account";
 					}
 
-					//cell.DetailTextLabel.Text = string.Empty;
 					return cell;
 				}
 				row--;
 			}
-			cell.TextLabel.Text = accountCategories[indexPath.Section].accounts[row].accountName;
+			cell.SubTitleLabel.Text = accountCategories[indexPath.Section].accounts[row].accountName;
+			cell.WarningButton.Hidden = !accountCategories[indexPath.Section].accounts[row].isExpiredWarning;
+
+			cell.WarningButton.TouchUpInside += (sender, e) =>
+			{
+				ShowAlertMessage(Constants.WARNING_PASSWORD_EXPIRED, Constants.WARNING_PASSWORD_EXPIRED_MESSAGE
+				                 .Replace("{expired_date}", accountCategories[indexPath.Section].accounts[row].expiredDate));
+			};
 
 			return cell;
 		}
@@ -397,6 +414,14 @@ namespace mPassword.iOS
 			}
 		}
 
+		public override void WillRotate(UIInterfaceOrientation toInterfaceOrientation, double duration)
+		{
+			if (flyMenuView != null && !flyMenuView.Hidden)
+			{
+				flyMenuView.Hidden = true;
+			}
+		}
+
 		public override void RowSelected(UITableView tableView, NSIndexPath indexPath)
 		{
 			AccountViewModel accountModel = accountCategories[indexPath.Section].accounts[indexPath.Row];
@@ -475,6 +500,13 @@ namespace mPassword.iOS
 					category.quantity = category.accounts.Count;
 				}
 			}
+		}
+
+		void ShowAlertMessage(string errorHeader, string errorContent)
+		{
+			var okAlertController = UIAlertController.Create(errorHeader, errorContent, UIAlertControllerStyle.Alert);
+			okAlertController.AddAction(UIAlertAction.Create(Constants.OK_BUTTON_LABEL, UIAlertActionStyle.Default, null));
+			PresentViewController(okAlertController, true, null);
 		}
     }
 }

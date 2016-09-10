@@ -9,6 +9,7 @@ namespace mPassword.iOS
 		public string accountName;
 		public string accountType;
 		public bool isExpiredWarning;
+		public string expiredDate;
 
 		public AccountViewModel()
 		{
@@ -25,6 +26,7 @@ namespace mPassword.iOS
 			accountName = bankAccount.Name;
 			accountType = "BankAcc";
 			isExpiredWarning = IsExpiredWarning(bankAccount.UpdatedDate, bankAccount.PasswordDuration);
+			expiredDate = CalculateExpiredDate(bankAccount.UpdatedDate, bankAccount.PasswordDuration);
 		}
 
 		public AccountViewModel(ComputerAccount computerAccount)
@@ -33,6 +35,7 @@ namespace mPassword.iOS
 			accountName = computerAccount.Name;
 			accountType = "ComputerAcc";
 			isExpiredWarning = IsExpiredWarning(computerAccount.UpdatedDate, computerAccount.PasswordDuration);
+			expiredDate = CalculateExpiredDate(computerAccount.UpdatedDate, computerAccount.PasswordDuration);
 		}
 
 		public AccountViewModel(WebAccount webAccount)
@@ -41,6 +44,7 @@ namespace mPassword.iOS
 			accountName = webAccount.Name;
 			accountType = "WebAcc";
 			isExpiredWarning = false;
+			expiredDate = string.Empty;
 		}
 
 		public AccountViewModel(EmailAccount emailAccount)
@@ -49,6 +53,7 @@ namespace mPassword.iOS
 			accountName = emailAccount.Name;
 			accountType = "EmailAcc";
 			isExpiredWarning = false;
+			expiredDate = string.Empty;
 		}
 
 		public bool IsExpiredWarning(string strUpdatedDate, int duration)
@@ -59,15 +64,25 @@ namespace mPassword.iOS
 			}
 
 			DateTime updatedDate = DateTime.ParseExact(strUpdatedDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
-			DateTime expiredDate = updatedDate.AddDays(duration);
+			DateTime warningExpiredDate = updatedDate.AddDays(duration - 5);
 
-			long diffDays = (expiredDate - DateTime.Today).Ticks;
-
-			if (diffDays > 5)
+			if (warningExpiredDate > DateTime.Today)
 			{
 				return false;
 			}
 			return true;
 		}
+
+		public string CalculateExpiredDate(string strUpdatedDate, int duration)
+		{
+			if (string.IsNullOrWhiteSpace(strUpdatedDate))
+			{
+				return strUpdatedDate;
+			}
+
+			DateTime updatedDate = DateTime.ParseExact(strUpdatedDate, "MM/dd/yyyy", CultureInfo.InvariantCulture);
+			return updatedDate.AddDays(duration).ToString("MM/dd/yyyy");
+		}
+
 	}
 }

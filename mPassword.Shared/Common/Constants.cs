@@ -8,6 +8,10 @@
 
 		public const string ERROR_EDIT_USER = "Error Edit User";
 
+		public const string WARNING_PASSWORD_EXPIRED = "Expiration Warning";
+
+		public const string WARNING_PASSWORD_EXPIRED_MESSAGE = "The password will expire in {expired_date}. Please change your password. ";
+
 		public const string ERROR_DATA = "Error Input Data";
 
 		public const string ERROR_USER_AUTHENTICATION = "The user name and password is incorrect.";

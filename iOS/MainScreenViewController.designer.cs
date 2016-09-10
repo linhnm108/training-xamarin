@@ -14,8 +14,16 @@ namespace mPassword.iOS
     [Register ("MainScreenViewController")]
     partial class MainScreenViewController
     {
+        [Outlet]
+        [GeneratedCode ("iOS Designer", "1.0")]
+        UIKit.UITableView btnWarning { get; set; }
+
         void ReleaseDesignerOutlets ()
         {
+            if (btnWarning != null) {
+                btnWarning.Dispose ();
+                btnWarning = null;
+            }
         }
     }
 }
