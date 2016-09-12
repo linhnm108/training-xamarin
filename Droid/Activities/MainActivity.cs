@@ -34,9 +34,6 @@ namespace mPassword.Droid
 				LogoutUser();
 			}
 
-			// Enabling Back navigation on Action Bar icon
-			ActionBar.SetDisplayHomeAsUpEnabled(true);
-
 			// get the listview
 			expandListView = FindViewById<ExpandableListView>(Resource.Id.expandListView);
 
